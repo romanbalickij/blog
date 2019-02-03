@@ -43,4 +43,3 @@ class CategoriesController extends Controller
         return back();
     }
 }
-fastcgi_finish_request()
