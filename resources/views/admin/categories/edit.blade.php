@@ -6,7 +6,7 @@
         <section class="content-header">
             <h1>
                 Добавить категорию
-                <small>приятные слова..</small>
+                <small></small>
             </h1>
         </section>
 

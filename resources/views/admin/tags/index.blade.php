@@ -5,6 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
+                Blank page
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -25,7 +26,7 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('tags.create')}}" class="btn btn-success">Добавить</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -36,19 +37,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $category)
                         <tr>
-                            <td>{{$category->id}}</td>
-                            <td>{{$category->title}}</td>
-                            <td><a href="{{route('categories.edit',$category->id)}}" class="fa fa-pencil"></a>
-                                <form method="POST" action="{{route('categories.destroy',$category->id)}}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onclick="return config('are you sure ?')" type="submit" class="delete">
-                                        <i class="fa fa-remove"></i>
-                                    </button>
-                                </form>
-                               </td>
+                            @foreach($tags as $tag)
+                                <td> {{$tag->id}}</td>
+                                <td>{{$tag->title}}</td>
+                                <td><a href="{{route('tags.edit',$tag->id)}}" class="fa fa-pencil"></a>
+                                    <form  method="post" action="{{route('tags.destroy',$tag->id)}}">
+                                        @method('delete')
+                                        @csrf
+                                        <button  type="submit" class="delete">
+                                            <i class="fa fa-remove" ></i>
+                                        </button>
+                                    </form>
                         </tr>
                         @endforeach
                         </tfoot>
