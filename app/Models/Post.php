@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Aws\S3\Enum\Storage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -36,5 +37,6 @@ class Post extends Model
             ]
         ];
     }
+
 
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email'
     ];
 
     /**
@@ -35,4 +36,32 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+    /**загрузка зображення */
+    public function uploadAvatar($avatar){
+
+        if($avatar == null) {return;}
+        if($this->avatar != null){
+            Storage::delete('uploads/'.$this->avatar);
+        }
+        $filename  = str_random(10).'.'.$avatar->extension();
+        $avatar->storeAs('uploads',$filename);
+        $this->avatar = $filename;
+        $this->save();
+    }
+
+    /**update user*/
+    public function edit($value){
+         $this->fill($value);
+         $this->save();
+    }
+
+  public function generalPassword($password){
+      if($password != null){
+          $this->password = bcrypt($password);
+          $this->save();
+      }
+  }
+
+
 }

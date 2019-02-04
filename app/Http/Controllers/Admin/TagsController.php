@@ -80,4 +80,3 @@ class TagsController extends Controller
         return redirect()->route('tags.index');
     }
 }
-gfg
