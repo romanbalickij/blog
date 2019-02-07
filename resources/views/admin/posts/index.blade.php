@@ -52,8 +52,8 @@
                                 </td>
                                 <td><a href="{{route('posts.edit',$post->id)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('posts.destroy',$post->id)}}">
+                                        @method('delete')
                                         @csrf
-                                        @method('DELETE')
                                         <button  type="submit" class="delete">
                                             <i class="fa fa-remove"></i>
                                         </button>

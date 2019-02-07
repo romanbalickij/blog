@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label>Теги</label>
-                            <select class="form-control select2" name="tags" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
+                            <select class="form-control select2" name="tags[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
                                 @foreach($tags as $tag)
                                     <option value="{{$tag->id}}" {{ $post->hasTag($tag->id) ? 'selected' : ''}}>
                                         {{$tag->title}}
@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <label>
                                 <input type="checkbox" name="is_featured" class="minimal"
-                                       {{$post->is_featured ? 'checked' : ''}} >
+                                       {{$post->is_featured ? 'checked' : ''}}  value="1">
                             </label>
                             <label>
                                 Рекомендовать
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label>
                                 <input type="checkbox" name="status" class="minimal"
-                                        {{$post->status ? 'checked' : ''}}>
+                                        {{$post->status ? 'checked' : ''}} value="1">
                             </label>
                             <label>
                                 Черновик
