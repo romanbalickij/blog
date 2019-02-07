@@ -58,7 +58,6 @@ class Post extends Model
     }
 
     public  static  function addPost($postCreate){
-
         $post = new static;
         $post-> fill($postCreate);
         $post->user_id = 1;
@@ -107,6 +106,11 @@ class Post extends Model
     {
          return implode(',',$this->tags()->pluck('title')->all());
 
+    }
+
+    public  function hasTag($tagId){
+       $tags = $this->tags()->pluck('tags.id');
+       return $tags->contains($tagId);
     }
 
 }

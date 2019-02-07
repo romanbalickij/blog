@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\User\UsersCreateRequest;
+use App\Http\Requests\User\UsersUpdateRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -38,15 +40,8 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersCreateRequest $request)
     {
-        $this->validate($request,[
-            'name'     => 'required|min:3',
-            'email'    => 'required|email|unique:users',
-            'password' => 'required|min:4',
-            'avatar'   => 'nullable|image'
-        ]);
-
         $user  = User::create($request->all());
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
@@ -57,12 +52,11 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
         return view('admin.users.edit', compact('user'));
     }
 
@@ -73,21 +67,18 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user =  User::find($id);
         $this->validate($request,[
-           'name'     => 'required|min:3',
-           'email'    => [
+            'name'     => 'required|min:3',
+            'avatar'   => 'nullable|image',
+            'email'    => [
                'required',
                'email',
                Rule::unique('users')->ignore($user->id),
-           ],
-           'avatar'   => 'nullable|image',
-         //  'password' => 'required|min:3'
+            ],
        ]);
 
-       // $user->update($request->all());
         $user->edit($request->all());
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
