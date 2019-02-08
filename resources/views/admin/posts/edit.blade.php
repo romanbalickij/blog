@@ -37,7 +37,7 @@
                             <label>Категория</label>
                             <select class="form-control select2" name="category_id" style="width: 100%;">
                                @foreach($categories as $category)
-                                <option  value="{{$category->id}}"
+                                <option  value="{{$post->getCategoryId()}}"
                                          {{$category->id == $post->category_id ? 'selected' : ''}} >
                                     {{$category->title}}
                                 </option>
