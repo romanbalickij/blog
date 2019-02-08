@@ -17,6 +17,7 @@
         <!-- Main content -->
         <section class="content">
             <form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
+            @csrf
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
@@ -52,7 +53,7 @@
                                 </td>
                                 <td><a href="{{route('posts.edit',$post->id)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('posts.destroy',$post->id)}}">
-                                        @method('delete')
+                                        @method('DELETE')
                                         @csrf
                                         <button  type="submit" class="delete">
                                             <i class="fa fa-remove"></i>

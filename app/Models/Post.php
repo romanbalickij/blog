@@ -11,7 +11,7 @@ class Post extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['title','content','date',];
+    protected $fillable = ['title','content','date','description'];
 
     public function category(){
       return  $this->belongsTo(Category::class);
@@ -108,13 +108,17 @@ class Post extends Model
     /**розвиваем масив в строку */
     public function tagsTitle()
     {
-         return implode(',',$this->tags()->pluck('title')->all());
-
+        if(!$this->tags->isEmpty()) {
+            return implode(',', $this->tags()->pluck('title')->all());
+        }
+            return 'Теги Вiдсутнi';
     }
 
     public  function hasTag($tagId){
-       $tags = $this->tags()->pluck('tags.id');
-       return $tags->contains($tagId);
+        {
+            $tags = $this->tags()->pluck('tags.id');
+            return $tags->contains($tagId);
+        }
     }
 
     public function getDateAttribute($value)
@@ -137,6 +141,10 @@ class Post extends Model
         if($this->image != null){
             Storage::delete("uploads/".$this->image);
         }
+
+    }
+//$post->category !=null ? $post->category->id:
+    public function getCategoryId(){
 
     }
 
