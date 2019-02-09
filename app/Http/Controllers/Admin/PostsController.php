@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Post\PostsRequest;
+use App\Http\Requests\Post\PostsCreateRequest;
+use App\Http\Requests\Post\PostsUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -40,7 +41,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostsRequest $request)
+    public function store(PostsCreateRequest $request)
     {
         $post = Post::addPost($request->all());
         $post->uploadImage($request->file('image'));
@@ -70,11 +71,11 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param PostsRequest $request
+     * @param PostsCreateRequest $request
      * @param Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsRequest $request,Post $post)
+    public function update(PostsUpdateRequest $request,Post $post)
     {
         $post->edit($request->all());
         $post->uploadImage($request->file('image'));
@@ -93,8 +94,8 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->remove();
 
+        $post->remove();
         return redirect()->route('posts.index');
     }
 }

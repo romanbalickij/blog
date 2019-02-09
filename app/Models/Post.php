@@ -143,16 +143,13 @@ class Post extends Model
         if($this->image != null) {
             Storage::delete("uploads/".$this->image);
         }
-
     }
 
     public function getCategoryId(){
-
       return  $this->category != null ? $this->category->id : null;
     }
 
     public function getDate(){
-
        return  Carbon::createFromFormat('d/m/y',$this->date)->format('F,d,Y');
 
     }

@@ -22,7 +22,7 @@
                             </div>
                             <div class="decoration">
                                 @foreach($post->tags as $tag)
-                                    <a href="#" class="btn btn-default">{{$tag->title}}</a>
+                                    <a href="{{route('tag.show',$tag->slug)}}" class="btn btn-default">{{$tag->title}}</a>
                                 @endforeach
                             </div>
 
@@ -48,40 +48,36 @@
                     </div><!--top comment end-->
                     <div class="row"><!--blog next previous-->
                         <div class="col-md-6">
-                            <!--1код для виведення  попереднбого поста-->
-                            <div class="single-blog-box">
-                                <a href="#">
-                                    <img src="/images/blog-next.jpg" alt="">
+                            @if($previousPost)
+                                <div class="single-blog-box">
+                                    <a href="{{route('post.show',$previousPost->slug)}}">
+                                        <img src="{{$previousPost->getImage()}}" style="width: 210px; height: 160px;" alt="">
 
-                                    <div class="overlay">
+                                        <div class="overlay">
 
-                                        <div class="promo-text">
-                                            <p><i class=" pull-left fa fa-angle-left"></i></p>
-                                            <h5>Rubel is doing Cherry theme</h5>
+                                            <div class="promo-text">
+                                                <p><i class=" pull-left fa fa-angle-left"></i></p>
+                                                <h5>{{$previousPost->title}}</h5>
+                                            </div>
                                         </div>
-                                    </div>
-
-
-                                </a>
-                            </div>
-                            <!--1код для виведення  попереднбого поста-->
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                         <div class="col-md-6">
-                            <!--2код для виведення  next поста-->
+                            @if($nextPost)
                             <div class="single-blog-box">
-                                <a href="#">
-                                    <img src="/images/blog-next.jpg" alt="">
-
+                                <a href="{{route('post.show',$nextPost->slug)}}">
+                                    <img src="{{$nextPost->getImage()}}" style="width: 210px; height: 160px;" alt="">
                                     <div class="overlay">
                                         <div class="promo-text">
                                             <p><i class=" pull-right fa fa-angle-right"></i></p>
-                                            <h5>Rubel is doing Cherry theme</h5>
-
+                                            <h5>{{$nextPost->title}}</h5>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <!--2код для виведення next поста-->
+                           @endif
                         </div>
                     </div><!--blog next previous end-->
                     <div class="related-post-carousel"><!--related post carousel-->

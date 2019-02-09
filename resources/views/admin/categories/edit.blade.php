@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить категорию
+                Поміняти категорію
                 <small></small>
             </h1>
         </section>
@@ -18,13 +18,12 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Меняем категорию</h3>
                         @include('admin.errors')
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Название</label>
+                            <label for="exampleInputEmail1">Імя</label>
                             <input type="text" class="form-control" id="exampleInputEmail1"
                                  name="title"  placeholder="" value="{{$category->title}}">
                         </div>
@@ -33,7 +32,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <a href="{{route('categories.index')}}" class="btn btn-default">Назад</a>
-                    <button class="btn btn-warning pull-right">Изменить</button>
+                    <button class="btn btn-warning pull-right">Поміняти</button>
                 </div>
                 <!-- /.box-footer-->
             </div>

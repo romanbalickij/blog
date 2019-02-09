@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Categories
+                Категорiї
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -21,19 +21,18 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Листинг сущности</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('categories.create')}}" class="btn btn-success">Додати</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Название</th>
-                            <th>Действия</th>
+                            <th>Імя</th>
+                            <th>Дія</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -45,7 +44,7 @@
                                 <form method="POST" action="{{route('categories.destroy',$category->id)}}">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return config('are you sure ?')" type="submit" class="delete">
+                                    <button type="submit" class="delete">
                                         <i class="fa fa-remove"></i>
                                     </button>
                                 </form>

@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Tags
+             Теги
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -20,19 +20,19 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Tags</h3>
+                    <h3 class="box-title">Теги</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('tags.create')}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('tags.create')}}" class="btn btn-success">Добавити</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Название</th>
-                            <th>Действия</th>
+                            <th>Імя</th>
+                            <th>Дія</th>
                         </tr>
                         </thead>
                         <tbody>
