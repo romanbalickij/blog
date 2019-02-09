@@ -13,7 +13,14 @@ class HomeController extends Controller
 
     public function index(){
         $posts = Post::paginate(3);
-        return view('pages.index', compact('posts'));
+        /*
+        $popularPosts = Post::orderBy('views','desc')->take(3)->get();
+        $featuredPosts = Post::where('is_featured',1)->take(3)->get();
+        $recentPosts = Post::orderBy('date','desc')->take(3)->get();
+        $categories = Category::all();
+*/
+        return view('pages.index')->with('posts',$posts);
+
     }
 
     public function show($slug){
@@ -39,7 +46,7 @@ class HomeController extends Controller
 
     public function category($slug){
         $category = Category::where('slug',$slug)->firstOrFail();
-        $posts = $category->posts()->paginate(3);
+        $posts = $category->posts()->paginate(4);
         return view('pages.list',compact('category','posts'));
     }
 }

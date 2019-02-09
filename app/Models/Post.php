@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Carbon;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Post extends Model
 {
@@ -157,6 +158,11 @@ class Post extends Model
     /**получаэ вci пости крым теперiшнього*/
     public function related(){
       return  self::all()->except($this->id);
+    }
+
+    public function hasCategory(){
+
+        return $this->category != null ? true : false;
     }
 
 }
