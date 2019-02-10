@@ -29,39 +29,60 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 
     /**загрузка зображення */
-    public function uploadAvatar($avatar){
-
-        if($avatar == null) {return;}
-        if($this->avatar != null){
-            Storage::delete('uploads/'.$this->avatar);
+    public function uploadAvatar($avatar)
+    {
+        if ($avatar == null) {
+            return;
         }
-        $filename  = str_random(10).'.'.$avatar->extension();
-        $avatar->storeAs('uploads',$filename);
+        if ($this->avatar != null) {
+            Storage::delete('uploads/' . $this->avatar);
+        }
+        $filename = str_random(10) . '.' . $avatar->extension();
+        $avatar->storeAs('uploads', $filename);
         $this->avatar = $filename;
         $this->save();
     }
 
     /**update user*/
-    public function edit($value){
-         $this->fill($value);
-         $this->save();
+    public function edit($value)
+    {
+        $this->fill($value);
+        $this->save();
     }
 
-  public function generalPassword($password){
-      if($password != null){
-          $this->password = bcrypt($password);
-          $this->save();
-      }
-  }
+    public function generalPassword($password)
+    {
+        if ($password != null) {
+            $this->password = bcrypt($password);
+            $this->save();
+        }
+    }
 
+    public static function add($value)
+    {
+        $user = new static;
+        $user->fill($value); // name,email
+        $user->save();
+        return $user;
+    }
+
+    public function getAvatar()
+    {
+        if ($this->avatar == null) {
+            return '/uploads/no-image.png';
+        }
+            return '/uploads/'.$this->avatar;
+    }
 
 }

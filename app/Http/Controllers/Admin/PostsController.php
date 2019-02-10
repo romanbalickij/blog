@@ -94,7 +94,6 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-
         $post->remove();
         return redirect()->route('posts.index');
     }
