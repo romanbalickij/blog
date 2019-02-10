@@ -17,19 +17,6 @@ class ProfileController extends Controller
     }
 
     public function store(ProfileUserRequest $request){
- /*
-        $this->validate($request,[
-            'name'     => 'required',
-            'password' => 'required',
-            'avatar'   => 'nullable|image',
-            'email'    => [
-                'required',
-                'email',
-                Rule::unique('users')->ignore(Auth::user()->id),
-            ]
-
-        ]);
- */
         $user = Auth::user();
         $user->edit($request->all());
         $user->generalPassword($request->get('password'));
