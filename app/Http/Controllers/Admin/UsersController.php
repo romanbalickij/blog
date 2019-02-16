@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\User\UsersCreateRequest;
 use App\Http\Requests\User\UsersUpdateRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,6 +35,12 @@ class UsersController extends Controller
       return view('admin.users.create');
     }
 
+    public function toggle($id)
+    {
+        $user = User::findOrFail($id);
+        $user->status();
+        return redirect()->back();
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -46,8 +53,11 @@ class UsersController extends Controller
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
 
+
         return redirect()->route('users.index');
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -83,6 +93,8 @@ class UsersController extends Controller
         $user->edit($request->all());
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
+
+        $user->status();
         return redirect()->route('users.index');
     }
 

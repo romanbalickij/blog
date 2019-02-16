@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить статью
+               Create Post
             </h1>
         </section>
         <!-- Main content -->
@@ -15,24 +15,23 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Добавляем статью</h3>
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Название</label>
+                            <label for="exampleInputEmail1">Title</label>
                             <input type="text"  name="title" class="form-control" id="exampleInputEmail1"
                                    placeholder="" value="{{old('title')}}">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Лицевая картинка</label>
+                            <label for="exampleInputFile">Image</label>
                             <input type="file" name="image" id="exampleInputFile">
 
                             <p class="help-block"> @include('admin.errors')</p>
                         </div>
                         <div class="form-group">
-                            <label>Категория</label>
+                            <label>Category</label>
                             <select class="form-control select2" name="category_id" style="width: 100%;">
                                 @foreach($categories as $category)
                                     <option  value="{{$category->id}}" selected="selected">{{$category->title}}</option>
@@ -40,7 +39,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Теги</label>
+                            <label>Tags</label>
                             <select class="form-control select2" name="tags[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
                                 @foreach($tags as $tag)
                                     <option value="{{$tag->id}}">{{$tag->title}}</option>
@@ -49,7 +48,7 @@
                         </div>
                         <!-- Date -->
                         <div class="form-group">
-                            <label>Дата:</label>
+                            <label>Date:</label>
 
                             <div class="input-group date">
                                 <div class="input-group-addon">
@@ -67,7 +66,7 @@
                                 <input type="checkbox" name="is_featured" class="minimal" value="1">
                             </label>
                             <label>
-                                Рекомендовать
+                                Recommend
                             </label>
                         </div>
 
@@ -77,20 +76,20 @@
                                 <input type="checkbox" name="status" class="minimal" value="1">
                             </label>
                             <label>
-                                Черновик
+                                Publish
                             </label>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Опис  Текста</label>
+                            <label for="exampleInputEmail1">Text Description</label>
                             <textarea name="description" id="" cols="30" rows="10"
                                       class="form-control">{{old('description')}}</textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Полный текст</label>
+                            <label for="exampleInputEmail1">Full text</label>
                             <textarea name="content" id="" cols="30" rows="10"
                                       class="form-control">{{old('content')}}</textarea>
                         </div>
@@ -98,8 +97,8 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="{{route('posts.index')}}" class="btn btn-default">Назад</a>
-                    <button class="btn btn-success pull-right">Добавить</button>
+                    <a href="{{route('posts.index')}}" class="btn btn-default">Back</a>
+                    <button class="btn btn-success pull-right">Create post</button>
                 </div>
                 <!-- /.box-footer-->
             </div>

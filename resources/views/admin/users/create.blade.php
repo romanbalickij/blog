@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить пользователя
+              Create User
             </h1>
         </section>
 
@@ -16,12 +16,12 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Добавляем пользователя</h3>
+
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Имя</label>
+                            <label for="exampleInputEmail1">Name</label>
                             <input type="text" name="name" class="form-control"
                                    id="exampleInputEmail1" placeholder="" value="{{old('name')}}">
                         </div>
@@ -31,11 +31,11 @@
                                    id="exampleInputEmail1" placeholder="" value="{{old('email')}}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Пароль</label>
+                            <label for="exampleInputEmail1">password</label>
                             <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Аватар</label>
+                            <label for="exampleInputFile">Avatar</label>
                             <input type="file" name="avatar" id="exampleInputFile">
 
                             <p class="help-block">  @include('admin.errors')</p>
@@ -44,8 +44,8 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="{{route('users.index')}}" class="btn btn-default">Назад</a>
-                    <button class="btn btn-success pull-right">Добавить</button>
+                    <a href="{{route('users.index')}}" class="btn btn-default">Back</a>
+                    <button class="btn btn-success pull-right">Create</button>
                 </div>
                 <!-- /.box-footer-->
             </div>

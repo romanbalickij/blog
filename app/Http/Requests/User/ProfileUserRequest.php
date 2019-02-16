@@ -27,7 +27,6 @@ class ProfileUserRequest extends FormRequest
     {
         return [
             'name'     => 'required',
-            'password' => 'required',
             'avatar'   => 'nullable|image',
             'email'    => [
                 'required',

@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-               Добавити Тег
+               Create tag
                 <small></small>
             </h1>
         </section>
@@ -21,7 +21,7 @@
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Уведіть імя тега</label>
+                                <label for="exampleInputEmail1">Title</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1"
                                        name="title" placeholder="">
                             </div>
@@ -29,8 +29,8 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{route('tags.index')}}" class="btn btn-default">Назад</a>
-                        <button class="btn btn-success pull-right">Добавити</button>
+                        <a href="{{route('tags.index')}}" class="btn btn-default">Back</a>
+                        <button class="btn btn-success pull-right">Create Tag</button>
                     </div>
                     <!-- /.box-footer-->
                 </div>

@@ -5,12 +5,10 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-           Tags
+                Comments
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
             </ol>
         </section>
 
@@ -25,23 +23,30 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('tags.create')}}" class="btn btn-success">Create tag</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
+                            <th>Text</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
+
+                     @foreach($comments as $comment)
                         <tr>
-                            @foreach($tags as $tag)
-                                <td> {{$tag->id}}</td>
-                                <td>{{$tag->title}}</td>
-                                <td><a href="{{route('tags.edit',$tag->id)}}" class="fa fa-pencil"></a>
-                                    <form  method="post" action="{{route('tags.destroy',$tag->id)}}">
+                            <td>{{$comment->id}}</td>
+                            <td>{{$comment->text}}</td>
+                            <td>
+                                @if($comment->status == 0)
+                                    <a href="{{route('comment.toggle',$comment->id)}}" class="fa fa-lock"></a>
+
+                                @else
+                                    <a href="{{route('comment.toggle',$comment->id)}}" class="fa fa-thumbs-o-up"></a>
+
+                                @endif
+                                    <form  method="post" action="{{route('comment.destroy',$comment->id)}}">
                                         @method('delete')
                                         @csrf
                                         <button  type="submit" class="delete">
@@ -49,7 +54,8 @@
                                         </button>
                                     </form>
                         </tr>
-                        @endforeach
+                     @endforeach
+                        </tbody>
                         </tfoot>
                     </table>
                 </div>
@@ -61,5 +67,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
 @endsection

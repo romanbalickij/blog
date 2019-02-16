@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Категорiї
+                Categories
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -25,14 +25,14 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('categories.create')}}" class="btn btn-success">Додати</a>
+                        <a href="{{route('categories.create')}}" class="btn btn-success">Create category</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Імя</th>
-                            <th>Дія</th>
+                            <th>Title</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>

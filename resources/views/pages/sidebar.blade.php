@@ -1,11 +1,18 @@
 <div class="col-md-4" data-sticky_column>
     <div class="primary-sidebar">
-
+        @if(session('status'))
+            <div class="alert alert-danger">
+                {{session('status')}}
+            </div>
+        @endif
         <aside class="widget news-letter">
-            <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
+            <h3 class="widget-title text-uppercase text-center"> SUBSCRIBE TO NEWS</h3>
 
-            <form action="#">
-                <input type="email" placeholder="Your email address">
+            <form action="{{route('subscribe')}}" method="POST">
+                @csrf
+                <input type="email" name="email" placeholder="Your email address"
+                       class="form-control ">
+
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>

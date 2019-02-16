@@ -83,6 +83,7 @@ class PostsController extends Controller
         $post->addTagsId($request->get('tags'));
         $post->status($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
+
         return redirect()->route('posts.index');
     }
 

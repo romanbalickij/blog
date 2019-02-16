@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 class User extends Authenticatable
 {
     use Notifiable;
+    const IS_BANNED = 1;
+    const IS_ACTIVE = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -83,6 +85,15 @@ class User extends Authenticatable
             return '/uploads/no-image.png';
         }
             return '/uploads/'.$this->avatar;
+    }
+
+    public function status(){
+        if($this->status  == 0){
+            $this->status = 1;
+            $this->save();
+        }else
+            $this->status = 0;
+            $this->save();
     }
 
 }

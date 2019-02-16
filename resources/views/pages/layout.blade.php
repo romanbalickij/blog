@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="/images/logo.png" alt=""></a>
+
             </div>
 
 
@@ -51,11 +51,14 @@
 
                 <ul class="nav navbar-nav text-uppercase pull-right">
                     @if(Auth::check())
-                        <li><a href="contact.html">My profile</a></li>
-                        <li><a href="{{route('users.logout')}}">Logout</a></li>
+                              <li><a href="{{route('user.profile')}}">My profile</a></li>
+
+                            <li><a href="{{route('users.logout')}}">Logout</a></li>
                     @else
                         <li><a href="{{route('register.form')}}">Register</a></li>
+
                         <li><a href="{{route('login.form')}}">Login</a></li>
+
                     @endif
 
 
@@ -76,7 +79,14 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
 
+
+        </div>
+    </div>
+</div>
 @yield('content')
 <!--footer start-->
 <div id="footer">
@@ -119,7 +129,7 @@
         <div class="row">
             <div class="col-md-4">
                 <aside class="footer-widget">
-                    <div class="about-img"><img src="/images/footer-logo.png" alt=""></div>
+                    <div class="about-img"><img src="/images/footer-logo.pngq" alt=""></div>
                     <div class="about-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed voluptua. At vero eos et
                         accusam et justo duo dlores et ea rebum magna text ar koto din.
@@ -232,9 +242,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="text-center">&copy; 2017 <a href="#">Blog, </a> Designed with <i
-                                class="fa fa-heart"></i> by <a href="#">Marlin</a>
-                    </div>
+
                 </div>
             </div>
         </div>

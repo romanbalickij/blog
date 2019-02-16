@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -30,6 +31,10 @@ class Post extends Model
           'post_id',
           'tag_id'
       );
+    }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
     }
 
     public function sluggable()
@@ -66,13 +71,14 @@ class Post extends Model
     public  static  function addPost($postAdd) {
         $post = new static;
         $post-> fill($postAdd);
-        $post->user_id = 1;
+        $post->user_id = Auth::user()->id;
         $post->save();
         return $post;
     }
 
     /**добавляем category_id*/
     public  function addCategoryId($id) {
+        if($id == null) {return;}
         $this->category_id = $id;
         $this->save();
     }
@@ -146,8 +152,8 @@ class Post extends Model
         }
     }
 
-    public function getCategoryId(){
-      return  $this->category != null ? $this->category->id : null;
+    public function getCategoryID(){
+        return $this->category != null ? $this->category->id : null;
     }
 
     public function getDate(){
@@ -169,5 +175,7 @@ class Post extends Model
         return self::orderBy('views','desc')->take(3)->get();
      }
 
-
+    public   function getComments(){
+        return $this->comment()->where('status', 1)->get();
+    }
 }

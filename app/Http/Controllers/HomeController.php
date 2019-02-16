@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $posts = Post::paginate(3);
+        $posts = Post::where('status',1)->paginate(3);
         /*
         $popularPosts = Post::orderBy('views','desc')->take(3)->get();
         $featuredPosts = Post::where('is_featured',1)->take(3)->get();

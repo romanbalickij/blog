@@ -7,9 +7,13 @@
                 <div class="col-md-8">
 
                     <div class="leave-comment mr0"><!--leave comment-->
-
+                        @if(session('profile'))
+                            <div class="alert alert-success">
+                                {{session('profile')}}
+                            </div>
+                        @endif
                         <h3 class="text-uppercase">My profile</h3>
-                        @include('admin.errors')
+                              @include('admin.errors')
                         <br>
                         <img src="{{$user->getAvatar()}}" alt="" class="profile-image">
                         <form class="form-horizontal contact-form" role="form" method="POST"

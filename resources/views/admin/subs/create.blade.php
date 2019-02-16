@@ -5,40 +5,40 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-              Create Category
-                <small></small>
+                Create Subscriber
             </h1>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <form method="POST" action="{{route('categories.store')}}">
+        <form action="{{route('subscribers.store')}}" method="POST">
             @csrf
+
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                      @include('admin.errors')
+                    @include('admin.errors')
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">title</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                  name="title" placeholder="">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="">
                         </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="{{route('categories.index')}}" class="btn btn-default">Back</a>
-                    <button class="btn btn-success pull-right">Create category</button>
+                    <a href="{{route('subscribers.index')}}" class="btn btn-default">Back</a>
+                    <button class="btn btn-success pull-right">Create</button>
                 </div>
                 <!-- /.box-footer-->
             </div>
             <!-- /.box -->
-            </form>
+        </form>
         </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
 @endsection

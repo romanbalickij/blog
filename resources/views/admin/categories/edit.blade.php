@@ -5,7 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Поміняти категорію
+                Edit Category
                 <small></small>
             </h1>
         </section>
@@ -23,7 +23,7 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Імя</label>
+                            <label for="exampleInputEmail1">Title</label>
                             <input type="text" class="form-control" id="exampleInputEmail1"
                                  name="title"  placeholder="" value="{{$category->title}}">
                         </div>
@@ -31,8 +31,8 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <a href="{{route('categories.index')}}" class="btn btn-default">Назад</a>
-                    <button class="btn btn-warning pull-right">Поміняти</button>
+                    <a href="{{route('categories.index')}}" class="btn btn-default">Back</a>
+                    <button class="btn btn-warning pull-right">Update</button>
                 </div>
                 <!-- /.box-footer-->
             </div>

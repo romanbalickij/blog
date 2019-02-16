@@ -35,7 +35,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="{{route('dashboard.admin')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"></span>
             <!-- logo for regular state and mobile devices -->
@@ -136,19 +136,18 @@
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
+
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <img src="{{Auth::user()-> getAvatar()}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                                <img src="{{Auth::user()-> getAvatar()}}" class="img-circle" alt="User Image">
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{Auth::user()->name}}- Web Developer
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -195,10 +194,11 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="{{Auth::user()-> getAvatar()}}" style="width:100%; height: 62px;"
+                         class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{Auth::user()->name}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -217,23 +217,30 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
+                    <a href="{{route('dashboard.admin')}}">
+                        <i class="fa fa-dashboard"></i> <span>Admin panel</span>
                     </a>
                 </li>
-                <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
-                <li><a href="{{route('categories.index')}}"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
-                <li><a href="{{route('tags.index')}}"><i class="fa fa-tags"></i> <span>Теги</span></a></li>
+                <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Posts</span></a></li>
+                <li><a href="{{route('categories.index')}}"><i class="fa fa-list-ul"></i> <span>Categories</span></a></li>
+                <li><a href="{{route('tags.index')}}"><i class="fa fa-tags"></i> <span>Tags</span></a></li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-commenting"></i> <span>Комментарии</span>
+                    <a href="{{route('comment')}}">
+                        <i class="fa fa-commenting"></i> <span>Comments</span>
                         <span class="pull-right-container">
-              <small class="label pull-right bg-green">5</small>
+              <small class="label pull-right bg-green">{{$newCommentsCount}}</small>
             </span>
                     </a>
                 </li>
-                <li><a href="{{route('users.index')}}"><i class="fa fa-users"></i> <span>Пользователи</span></a></li>
-                <li><a href="#"><i class="fa fa-user-plus"></i> <span>Подписчики</span></a></li>
+                <li>
+                    <a href="{{route('users.index')}}">
+                        <i class="fa fa-users"></i> <span>Users</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-green">{{$newUsersCont}}</small>
+                        </span>
+                    </a>
+                </li>
+                <li><a href="{{route('subscribers.index')}}"><i class="fa fa-user-plus"></i> <span>Subscribers</span></a></li>
 
             </ul>
         </section>
@@ -241,14 +248,18 @@
     </aside>
 
     <!-- =============================================== -->
-
+        @if(session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+        @endif
    @yield('content')
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.7
+            <b>Version</b>
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="#">Almsaeed Studio</a>.</strong> All rights
+        <strong>Copyright <a href="#">Almsaeed Studio</a>.</strong> All rights
         reserved.
     </footer>
 
@@ -284,7 +295,7 @@
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
 
-                                <p>New phone +1(800)555-1234</p>
+                                <p>New phone +8(800)555-1234</p>
                             </div>
                         </a>
                     </li>

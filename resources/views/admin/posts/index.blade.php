@@ -25,17 +25,17 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route('posts.create')}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('posts.create')}}" class="btn btn-success">Create post</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Название</th>
-                            <th>Категория</th>
-                            <th>Теги</th>
-                            <th>Картинка</th>
-                            <th>Действия</th>
+                            <th>title</th>
+                            <th>Categories</th>
+                            <th>Tags</th>
+                            <th>Image</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
