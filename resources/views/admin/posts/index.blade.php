@@ -8,9 +8,7 @@
                Posts
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
+                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
             </ol>
         </section>
 
@@ -47,7 +45,7 @@
                                 <td>{{$post->tagsTitle()}}</td>
                                 <td>
                                     <img src="{{$post->getImage()}}" alt="" class="img-responsive" width="150"
-                                         height="100">
+                                         height="150">
                                 </td>
                                 <td><a href="{{route('posts.edit',$post->id)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('posts.destroy',$post->id)}}">

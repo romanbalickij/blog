@@ -54,34 +54,7 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
-                        </ul>
-                    </li>
+
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -105,12 +78,7 @@
                     </li>
                     <!-- Tasks: style can be found in dropdown.less -->
                     <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
                         <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -147,31 +115,18 @@
                             <li class="user-header">
                                 <img src="{{Auth::user()-> getAvatar()}}" class="img-circle" alt="User Image">
                                 <p>
-                                    {{Auth::user()->name}}- Web Developer
+                                    {{Auth::user()->name}}-Admin
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
+
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{route('user.profile')}}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{route('users.logout')}}" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -194,12 +149,12 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{Auth::user()-> getAvatar()}}" style="width:100%; height: 62px;"
+                    <img src="{{Auth::user()-> getAvatar()}}"
                          class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>{{Auth::user()->name}}</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <a><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
             <!-- search form -->
@@ -221,7 +176,13 @@
                         <i class="fa fa-dashboard"></i> <span>Admin panel</span>
                     </a>
                 </li>
-                <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Posts</span></a></li>
+                <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i><span>Posts</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-green">{{$PostsCount}}</small>
+                        </span>
+                    </a></li>
+
+
                 <li><a href="{{route('categories.index')}}"><i class="fa fa-list-ul"></i> <span>Categories</span></a></li>
                 <li><a href="{{route('tags.index')}}"><i class="fa fa-tags"></i> <span>Tags</span></a></li>
                 <li>
@@ -246,7 +207,6 @@
         </section>
         <!-- /.sidebar -->
     </aside>
-
     <!-- =============================================== -->
         @if(session('status'))
         <div class="alert alert-success">
@@ -254,15 +214,6 @@
         </div>
         @endif
    @yield('content')
-
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b>
-        </div>
-        <strong>Copyright <a href="#">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer>
-
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->

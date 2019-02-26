@@ -28,15 +28,17 @@
                         <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Author</th>
                             <th>Text</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-
+                       
                      @foreach($comments as $comment)
                         <tr>
                             <td>{{$comment->id}}</td>
+                            <td>{{$comment->author->name}}</td>
                             <td>{{$comment->text}}</td>
                             <td>
                                 @if($comment->status == 0)

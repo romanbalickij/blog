@@ -32,6 +32,11 @@ class Post extends Model
           'tag_id'
       );
     }
+    public function likes(){
+
+        return $this->hasMany(Like::class);
+    }
+
 
     public function comment(){
         return $this->hasMany(Comment::class);
@@ -172,10 +177,65 @@ class Post extends Model
     }
 
      public static function  getPopularPost(){
+
         return self::orderBy('views','desc')->take(3)->get();
      }
 
+     public static function featuredPosts(){
+
+        return self::where('is_featured',1)->take(3)->get();
+     }
+
+     public static  function recentPosts(){
+
+        return self::orderBy('date','desc')->take(3)->get();
+     }
+
+     public static function PostsCount(){
+
+        return self::where('status',0)->count();
+     }
+
     public   function getComments(){
+
         return $this->comment()->where('status', 1)->get();
     }
+
+    public function  increaseViews(){
+        $this->views++ ;
+        $this->save();
+    }
+
+    public function commentCount(){
+      return  $this->comment()->count();
+    }
+/*
+    public function likePost($postId){
+        $user = new User();
+        return $user->likes()->where('post_id',$postId)
+            ->first() ? $user->likes()
+            ->where('post_id',$postId)
+           ->first()->like == 1 ? 'You like this post' : 'Like' : 'Like' ;
+    }
+
+    public function disLikePost($postId){
+        $user = new User();
+        return $user->likes()->where('post_id',$postId)
+            ->first() ? $user->likes()
+            ->where('post_id',$postId)
+            ->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike' ;
+
+    }
+
+*/
+
+    public function likesCount()
+    {
+        $like = Like::where('post_id', '=', $this->id)
+            ->select('like')
+            ->sum('like');
+        return $like;
+    }
 }
+
+

@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SubsRequest extends FormRequest
 {
+    protected $errorBag = 'subscription';
+
     /**
      * Determine if the user is authorized to make this request.
      *

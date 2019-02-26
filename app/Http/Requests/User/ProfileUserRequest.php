@@ -28,6 +28,7 @@ class ProfileUserRequest extends FormRequest
         return [
             'name'     => 'required',
             'avatar'   => 'nullable|image',
+            'user_title' =>'nullable|max:255',
             'email'    => [
                 'required',
                 'email',

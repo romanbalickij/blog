@@ -10,14 +10,17 @@ class Comment extends Model
     protected  $fillable = ['text','user_id','post_id'];
 
     public function post(){
+
         return $this->belongsTo(Post::class);
     }
 
     public function author(){
+
         return $this->belongsTo(User::class,'user_id');
     }
 
     public function status(){
+
         if($this->status  == 0){
              $this->status = 1;
              $this->save();
@@ -27,9 +30,13 @@ class Comment extends Model
     }
 
     public function remove(){
+
         $this->delete();
     }
 
+    public  static function newCommentsCount(){
 
+        return self::where('status',0)->count();
+    }
 
 }

@@ -37,6 +37,15 @@
                                    id="exampleInputEmail1" placeholder="" >
                         </div>
                         <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="is_admin" class="minimal"
+                                       {{$user->is_admin ? 'checked' : ''}}  value="1">
+                            </label>
+                            <label>
+                                Admin
+                            </label>
+                        </div>
+                        <div class="form-group">
                             @if($user->avatar == null)
                                 <img src="/uploads/no-image.png" alt="" class="img-responsive" width="150" height="100">
                             @else

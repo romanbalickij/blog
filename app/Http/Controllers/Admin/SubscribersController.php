@@ -50,6 +50,5 @@ class SubscribersController extends Controller
     }
 }
 
-// статус  користувача
-//  бан користучача и  разбан
+
 

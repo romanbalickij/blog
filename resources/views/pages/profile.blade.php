@@ -37,12 +37,18 @@
                                            placeholder="password">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <textarea type="text" class="form-control" id="name"
+                                              name="user_title">{{$user->user_title}}</textarea>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="file" class="form-control" id="image" name="avatar">
                                 </div>
                             </div>
+
                             <button type="submit" class="btn send-btn">Update</button>
 
                         </form>

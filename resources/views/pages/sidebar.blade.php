@@ -7,7 +7,21 @@
         @endif
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center"> SUBSCRIBE TO NEWS</h3>
-
+            @if($errors->subscription->any())
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->subscription->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <form action="{{route('subscribe')}}" method="POST">
                 @csrf
                 <input type="email" name="email" placeholder="Your email address"

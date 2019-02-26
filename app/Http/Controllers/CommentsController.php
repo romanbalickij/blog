@@ -17,6 +17,6 @@ class CommentsController extends Controller
           'user_id' => Auth::user()->id,
           'post_id' => $request->get('post_id')
       ]);
-      return redirect()->back()->with('status','Ваший коментарій скоро буде добавлений ');
+      return redirect()->back()->with('status','Your comment will be added soon ');
     }
 }

@@ -35,6 +35,14 @@
                             <input type="password" name="password" class="form-control" id="exampleInputEmail1" placeholder="">
                         </div>
                         <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="is_admin" class="minimal" value="1">
+                            </label>
+                            <label>
+                                Admin
+                            </label>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputFile">Avatar</label>
                             <input type="file" name="avatar" id="exampleInputFile">
 

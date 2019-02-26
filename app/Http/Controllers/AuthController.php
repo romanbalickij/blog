@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\UsersRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -21,6 +22,7 @@ class AuthController extends Controller
        $user->generalPassword($request->get('password'));
 
        return redirect()->route('login.form');
+
     }
 
     public function loginForm(){

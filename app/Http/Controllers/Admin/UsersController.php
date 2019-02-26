@@ -52,19 +52,12 @@ class UsersController extends Controller
         $user  = User::create($request->all());
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
-
+        $user->toggleAdmin($request->get('is_admin'));
 
         return redirect()->route('users.index');
     }
 
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param User $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
         return view('admin.users.edit', compact('user'));
@@ -93,21 +86,21 @@ class UsersController extends Controller
         $user->edit($request->all());
         $user->generalPassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
+        $user->toggleAdmin($request->get('is_admin'));
 
-        $user->status();
         return redirect()->route('users.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(User $user)
     {
-        Storage::delete("uploads/$user->avatar");
-        $user->delete();
+        $user->remove();
         return back();
     }
 }

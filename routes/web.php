@@ -4,6 +4,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
+Route::post('/like','HomeController@likePost')->name('like');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
 Route::post('/subscribe', 'SubsController@subscribe')->name('subscribe');

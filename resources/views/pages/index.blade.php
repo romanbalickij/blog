@@ -15,6 +15,8 @@
                                     <div class="text-uppercase text-center">View Post</div>
                                 </a>
                             </div>
+
+
                             <div class="post-content">
                                 <header class="entry-header text-center text-uppercase">
                                     @if($post->hasCategory())
@@ -37,13 +39,20 @@
                                 </div>
                                 <div class="social-share">
                                     <span class="social-share-title pull-left text-capitalize">
-                                        By <a href="#"> {{$post->author->name}}</a> On {{$post->getDate()}}</span>
+                                        By <i> {{$post->author->name}}</i> On {{$post->getDate()}}</span>
                                     <ul class="text-center pull-right">
-                                        <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="s-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="s-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a class="s-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <div class="post-content mb-50">
+
+                                            <div class="post-meta">
+                                                <a href="{{route('post.show',$post->slug)}}">
+                                                    <i class="fa fa-eye"></i>{{$post->views}}</a>
+
+                                                <i class="fa fa-comments"></i>{{$post->commentCount()}}
+
+                                                <a ><i class="fa fa-heart-o" aria-hidden="true"></i>{{$post->likesCount()}}</a>
+                                            </div>
+
+                                        </div>
                                     </ul>
                                 </div>
                             </div>

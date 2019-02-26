@@ -9,6 +9,7 @@
                     <article class="post">
                         <div class="post-thumb">
                             <i><img src="{{$post->getImage()}}" alt=""></i>
+
                         </div>
                         <div class="post-content">
                             <header class="entry-header text-center text-uppercase">
@@ -24,6 +25,7 @@
                                   {!! $post->content !!}
                                 </p>
                             </div>
+
                             <div class="decoration">
                                 @foreach($post->tags as $tag)
                                     <a href="{{route('tag.show',$tag->slug)}}" class="btn btn-default">{{$tag->title}}</a>
@@ -34,11 +36,14 @@
 							<span
                                     class="social-share-title pull-left text-capitalize">By {{$post->author->name}} On {{$post->getDate()}}</span>
                                 <ul class="text-center pull-right">
-                                    <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="s-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a class="s-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a class="s-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+
+                                    <div class="panel footer" data-postid="{{$post->id}}">
+                                        @if(Auth::check())
+
+                                            <a href="#" title="Love it" class="btn btn-counter like  " data-count="1"><span>&#x2764;</span>{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
+                                            <a href="#" title="Love it" class="btn btn-counter like  " data-count="2"><span>&#x2764;</span>{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You dont like this post' : 'Dislike' : 'Dislike'}}</a>
+                                        @endif
+                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -48,8 +53,7 @@
                              class="pull-left img"  style=" height: 100px; width: 100px;"  alt="">
                         <h4>{{$post->author->name}}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
-                            invidunt ut labore et dolore magna aliquyam erat.</p>
+                        <p>{{$post->author->user_title}}</p>
                     </div><!--top comment end-->
                     <div class="row"><!--blog next previous-->
                         <div class="col-md-6">
@@ -119,6 +123,7 @@
 
                             <p class="para">{{$comment->text}}</p>
                         </div>
+
                     </div>
                     <!-- end bottom comment-->
                            @endforeach
@@ -140,6 +145,7 @@
                             </div>
                             <button class="btn send-btn">Post Comment</button>
                         </form>
+
                     </div><!--end leave comment-->
 
                       @endif

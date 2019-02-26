@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpKernel\EventListener\SessionListener;
 
 class User extends Authenticatable
 {
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email'
+        'name', 'email','user_title'
     ];
 
     /**
@@ -39,6 +40,11 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function likes(){
+
+        return $this->hasMany(Like::class);
     }
 
     /**загрузка зображення */
@@ -87,13 +93,52 @@ class User extends Authenticatable
             return '/uploads/'.$this->avatar;
     }
 
+
     public function status(){
-        if($this->status  == 0){
-            $this->status = 1;
+        if($this->status  == null){
+            $this->status = self::IS_BANNED;
             $this->save();
         }else
-            $this->status = 0;
+            $this->status = self::IS_ACTIVE;
             $this->save();
+    }
+
+    public function toggleAdmin($value)
+    {
+        if($value == null)
+        {
+            return $this->makeNormal();
+        }
+
+        return $this->makeAdmin();
+    }
+
+    public function makeNormal()
+    {
+        $this->is_admin = 0;
+        $this->save();
+    }
+
+    public function makeAdmin()
+    {
+        $this->is_admin = 1;
+        $this->save();
+    }
+
+    public function deleteAvatar(){
+        if($this->avatar != null){
+            Storage::delete("uploads/$this->avatar");
+        }
+    }
+
+    public function remove(){
+        $this->deleteAvatar();
+        $this->delete();
+    }
+
+    public static function newUsersCont(){
+
+        return self::where('status',1)->count();
     }
 
 }
