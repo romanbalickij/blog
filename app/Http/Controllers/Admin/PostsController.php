@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Post\PostsCreateRequest;
 use App\Http\Requests\Post\PostsUpdateRequest;
+use App\Mail\SubscribeMailingEmail;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Subscription;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,6 +52,8 @@ class PostsController extends Controller
         $post->status($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
 
+        \Mail::to( Subscription::all())->send(new SubscribeMailingEmail($post->slug));
+
         return redirect()->route('posts.index');
     }
 
@@ -90,7 +94,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Post $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)

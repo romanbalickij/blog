@@ -112,10 +112,19 @@ class Post extends Model
     }
 
     public function getCategoryTitle() {
+
         if($this->category != null){
             return $this->category->title;
         }else
-            return 'Категорiя Вiдсутня';
+            return 'no categories';
+    }
+
+    public function postAuthor()
+    {
+        if($this->author != null){
+            return $this->author->name;
+        }else
+           return 'anonymous';
     }
 
     /**розвиваем масив в строку */

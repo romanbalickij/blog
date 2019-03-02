@@ -22,7 +22,7 @@
                                     @if($post->hasCategory())
                                        <h6><a href="{{route('category.show',$post->category->slug)}}">{{$post->getCategoryTitle()}}</a></h6>
                                     @else
-                                        <h5>Категорий нет</h5>
+                                        <h5>No categories</h5>
                                     @endif
                                     <h1 class="entry-title"><a
                                                 href="{{route('post.show',$post->slug)}}">{{$post->title}}</a></h1>
@@ -39,7 +39,8 @@
                                 </div>
                                 <div class="social-share">
                                     <span class="social-share-title pull-left text-capitalize">
-                                        By <i> {{$post->author->name}}</i> On {{$post->getDate()}}</span>
+                                            By <i>{{$post->postAuthor()}}</i>
+                                         On {{$post->getDate()}}</span>
                                     <ul class="text-center pull-right">
                                         <div class="post-content mb-50">
 

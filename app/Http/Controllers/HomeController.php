@@ -36,12 +36,10 @@ class HomeController extends Controller
 
         $post->increaseViews();
 
-        $likesCount = Like::where('post_id','=',$post->id)
-            ->select('like')
-            ->sum('like');
+
 
         return view('pages.show', compact('post',
-            'previousPost','nextPost','likesCount'));
+            'previousPost','nextPost'));
     }
 
     public function likePost(Request $request){

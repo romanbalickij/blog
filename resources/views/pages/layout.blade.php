@@ -51,8 +51,7 @@
 
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a href="/">Homepage</a></li>
-                    <li><a href="about-me.html">ABOUT ME </a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-nav text-uppercase pull-right">
@@ -93,7 +92,7 @@
 <!--footer start-->
 <div id="footer">
     <div class="footer-instagram-section">
-        <h3 class="footer-instagram-title text-center text-uppercase">Instagram</h3>
+        <h3 class="footer-instagram-title text-center text-uppercase"></h3>
 
         <div id="footer-instagram" class="owl-carousel">
 
@@ -154,7 +153,7 @@
             };
             axios.post('/like', data).then(response =>{
                 e.currentTarget.className = 'fa fa-thumbs-up like active'
-                e.currentTarget.className = 'fa fa-thumbs-down like active'
+
             });
         });
     });

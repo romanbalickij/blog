@@ -46,11 +46,10 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <input type="file" class="form-control" id="image" name="avatar">
+
                                 </div>
                             </div>
-
                             <button type="submit" class="btn send-btn">Update</button>
-
                         </form>
                     </div><!--end leave comment-->
                 </div>

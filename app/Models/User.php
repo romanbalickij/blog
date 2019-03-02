@@ -80,7 +80,7 @@ class User extends Authenticatable
     public static function add($value)
     {
         $user = new static;
-        $user->fill($value); // name,email
+        $user->fill($value);
         $user->save();
         return $user;
     }

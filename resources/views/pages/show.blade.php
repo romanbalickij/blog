@@ -34,7 +34,7 @@
 
                             <div class="social-share">
 							<span
-                                    class="social-share-title pull-left text-capitalize">By {{$post->author->name}} On {{$post->getDate()}}</span>
+                                    class="social-share-title pull-left text-capitalize">By {{$post->postAuthor()}} On {{$post->getDate()}}</span>
                                 <ul class="text-center pull-right">
 
                                     <div class="panel footer" data-postid="{{$post->id}}">
@@ -51,7 +51,7 @@
                     <div class="top-comment"><!--top comment-->
                         <img src="{{$post->author->getAvatar()}}"
                              class="pull-left img"  style=" height: 100px; width: 100px;"  alt="">
-                        <h4>{{$post->author->name}}</h4>
+                        <h4>{{$post->postAuthor()}}</h4>
 
                         <p>{{$post->author->user_title}}</p>
                     </div><!--top comment end-->
@@ -105,7 +105,7 @@
                             @endforeach
                         </div>
                     </div><!--related post carousel-->
-                        @if(!$post->comment->isEmpty())
+                        @unless($post->comment->isEmpty())
                             @foreach($post->getComments() as $comment)
                     <div class="bottom-comment"><!--bottom comment-->
 
@@ -127,7 +127,7 @@
                     </div>
                     <!-- end bottom comment-->
                            @endforeach
-                        @endif
+                        @endunless
                    @if(Auth::check())
                        @if(Auth::user()->status == 0)
 
