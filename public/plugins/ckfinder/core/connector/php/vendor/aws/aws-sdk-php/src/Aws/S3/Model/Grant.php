@@ -42,7 +42,7 @@ class Grant implements ToArrayInterface
     protected $grantee;
 
     /**
-     * @var string The permission set by the grant
+     * @var string The role set by the grant
      */
     protected $permission;
 
@@ -83,7 +83,7 @@ class Grant implements ToArrayInterface
     }
 
     /**
-     * Set the permission set by the grant
+     * Set the role set by the grant
      *
      * @param string $permission Permission applied
      *
@@ -95,7 +95,7 @@ class Grant implements ToArrayInterface
     {
         $valid = Permission::values();
         if (!in_array($permission, $valid)) {
-            throw new InvalidArgumentException('The permission must be one of '
+            throw new InvalidArgumentException('The role must be one of '
                 . 'the following: ' . implode(', ', $valid) . '.');
         }
 
@@ -105,7 +105,7 @@ class Grant implements ToArrayInterface
     }
 
     /**
-     * Get the permission set by the grant
+     * Get the role set by the grant
      *
      * @return string
      */

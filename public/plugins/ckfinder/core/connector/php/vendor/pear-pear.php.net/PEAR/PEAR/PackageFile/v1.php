@@ -1026,9 +1026,9 @@ class PEAR_PackageFile_v1
                 PEAR_PACKAGEFILE_ERROR_NO_FILES =>
                     'No files in <filelist> section of package.xml',
                 PEAR_PACKAGEFILE_ERROR_NO_FILEROLE =>
-                    'File "%file%" has no role, expecting one of "%roles%"',
+                    'File "%file%" has no role, expecting one of "%role%"',
                 PEAR_PACKAGEFILE_ERROR_INVALID_FILEROLE =>
-                    'File "%file%" has invalid role "%role%", expecting one of "%roles%"',
+                    'File "%file%" has invalid role "%role%", expecting one of "%role%"',
                 PEAR_PACKAGEFILE_ERROR_INVALID_FILENAME =>
                     'File "%file%" cannot start with ".", cannot package or install',
                 PEAR_PACKAGEFILE_ERROR_INVALID_PHPFILE =>
@@ -1104,7 +1104,7 @@ class PEAR_PackageFile_v1
                 }
                 if (empty($m['role'])) {
                     $this->_validateError(PEAR_PACKAGEFILE_ERROR_NO_MAINTROLE,
-                        array('index' => $i, 'roles' => PEAR_Common::getUserRoles()));
+                        array('index' => $i, 'role' => PEAR_Common::getUserRoles()));
                 } elseif ($m['role'] == 'lead') {
                     $haslead = true;
                 }
@@ -1187,11 +1187,11 @@ class PEAR_PackageFile_v1
             foreach ($info['filelist'] as $file => $fa) {
                 if (empty($fa['role'])) {
                     $this->_validateError(PEAR_PACKAGEFILE_ERROR_NO_FILEROLE,
-                        array('file' => $file, 'roles' => PEAR_Common::getFileRoles()));
+                        array('file' => $file, 'role' => PEAR_Common::getFileRoles()));
                     continue;
                 } elseif (!in_array($fa['role'], PEAR_Common::getFileRoles())) {
                     $this->_validateError(PEAR_PACKAGEFILE_ERROR_INVALID_FILEROLE,
-                        array('file' => $file, 'role' => $fa['role'], 'roles' => PEAR_Common::getFileRoles()));
+                        array('file' => $file, 'role' => $fa['role'], 'role' => PEAR_Common::getFileRoles()));
                 }
                 if (preg_match('~/\.\.?(/|\\z)|^\.\.?/~', str_replace('\\', '/', $file))) {
                     // file contains .. parent directory or . cur directory references

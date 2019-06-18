@@ -66,7 +66,7 @@ class ImageEdit extends CommandAbstract
             $path = $workingFolder->getClientCurrentFolder();
 
             if (!$acl->isAllowed($resourceTypeName, $path, Permission::FILE_DELETE)) {
-                throw new UnauthorizedException(sprintf('Unauthorized: no FILE_DELETE permission in %s:%s', $resourceTypeName, $path));
+                throw new UnauthorizedException(sprintf('Unauthorized: no FILE_DELETE role in %s:%s', $resourceTypeName, $path));
             }
         }
 

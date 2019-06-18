@@ -198,6 +198,22 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('permission.index')}}">
+                        <i class="fa fa-users"></i> <span> Permissions</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-green">{{$newUsersCont}}</small>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('role.index')}}">
+                        <i class="fa fa-users"></i> <span> Roles</span>
+                        <span class="pull-right-container">
+                            <small class="label pull-right bg-green">{{$newUsersCont}}</small>
+                        </span>
+                    </a>
+                </li>
                 <li><a href="{{route('subscribers.index')}}"><i class="fa fa-user-plus"></i> <span>Subscribers</span></a></li>
 
             </ul>

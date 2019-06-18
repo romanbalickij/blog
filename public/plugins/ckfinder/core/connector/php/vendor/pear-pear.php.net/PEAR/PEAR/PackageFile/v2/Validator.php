@@ -1405,8 +1405,8 @@ class PEAR_PackageFile_v2_Validator
     {
         $this->_stack->push(__FUNCTION__, 'error', array(
             'file' => $file, 'dir' => $dir, 'role' => $role,
-            'roles' => PEAR_Installer_Role::getValidRoles($this->_pf->getPackageType())),
-            'File "%file%" in directory "%dir%" has invalid role "%role%", should be one of %roles%');
+            'role' => PEAR_Installer_Role::getValidRoles($this->_pf->getPackageType())),
+            'File "%file%" in directory "%dir%" has invalid role "%role%", should be one of %role%');
     }
 
     function _invalidFileName($file, $dir)

@@ -102,7 +102,7 @@ class AccessPolicy
     }
     
     /**
-     * Gets permission.
+     * Gets role.
      *
      * @return string.
      */
@@ -112,7 +112,7 @@ class AccessPolicy
     }
 
     /**
-     * Sets permission.
+     * Sets role.
      *
      * @param string $permission value.
      * 

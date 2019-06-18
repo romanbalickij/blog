@@ -168,7 +168,7 @@ class ContainerAcl
         Validate::isString($id, 'id');
         Validate::isDate($start);
         Validate::isDate($expiry);
-        Validate::isString($permission, 'permission');
+        Validate::isString($permission, 'role');
         
         $accessPolicy = new AccessPolicy();
         $accessPolicy->setStart($start);

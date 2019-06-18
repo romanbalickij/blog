@@ -210,7 +210,7 @@ class RoleInstance
      * Gets the instance upgrade domain.
      * 
      * The upgrade domain that this role instance belongs to. During an upgrade 
-     * deployment, all roles in the same upgrade domain are upgraded at the same 
+     * deployment, all role in the same upgrade domain are upgraded at the same
      * time.
      * 
      * @return integer
@@ -316,7 +316,7 @@ class RoleInstance
      * Error code of the latest role or VM start. For VMRoles the error codes are: 
      * WaitTimeout, VhdTooLarge, AzureInternalError.
      * 
-     * For web and worker roles this field returns an error code that can be provided
+     * For web and worker role this field returns an error code that can be provided
      * to Windows Azure support to assist in resolution of errors. Typically this
      * field will be empty.
      * 

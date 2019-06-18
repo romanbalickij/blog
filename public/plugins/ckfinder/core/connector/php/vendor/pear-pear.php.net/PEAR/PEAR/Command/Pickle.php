@@ -61,7 +61,7 @@ only simple package.xml 2.0 will be converted.  package.xml 2.0 with:
  - dependency groups
  - ignore tags in release filelist
  - tasks other than replace
- - custom roles
+ - custom role
 
 will cause pickle to fail, and output an error message.  If your package2.xml
 uses any of these features, you are best off using PEAR_PackageFileManager to
@@ -163,7 +163,7 @@ generate both package.xml.
 
         if (is_array($pf2->getUsesRole())) {
             return $this->raiseError('Cannot safely convert "' . $packagexml .
-            '", contains custom roles.  Using a PEAR_PackageFileManager-based script or ' .
+            '", contains custom role.  Using a PEAR_PackageFileManager-based script or ' .
             'the convert command is an option');
         }
 
@@ -393,7 +393,7 @@ generate both package.xml.
 
             if (!in_array($file['attribs']['role'], PEAR_Common::getFileRoles())) {
                 return $this->raiseError('Cannot safely convert "' . $packagexml .
-                '", contains custom roles.  Using a PEAR_PackageFileManager-based script ' .
+                '", contains custom role.  Using a PEAR_PackageFileManager-based script ' .
                 'or the convert command is an option');
             }
 

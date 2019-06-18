@@ -61,7 +61,7 @@ define('PEAR_COMMON_CHANNEL_DOWNLOAD_PREG', '/^' . _PEAR_COMMON_CHANNEL_DOWNLOAD
 $GLOBALS['_PEAR_Common_tempfiles'] = array();
 
 /**
- * Valid maintainer roles
+ * Valid maintainer role
  * @var array
  */
 $GLOBALS['_PEAR_Common_maintainer_roles'] = array('lead','developer','contributor','helper');
@@ -85,7 +85,7 @@ $GLOBALS['_PEAR_Common_dependency_types'] = array('pkg','ext','php','prog','ldli
 $GLOBALS['_PEAR_Common_dependency_relations'] = array('has','eq','lt','le','gt','ge','not', 'ne');
 
 /**
- * Valid file roles
+ * Valid file role
  * @var array
  */
 $GLOBALS['_PEAR_Common_file_roles'] = array('php','ext','test','doc','data','src','script');
@@ -318,7 +318,7 @@ class PEAR_Common extends PEAR
     }
 
     /**
-     * Get the valid roles for a PEAR package maintainer
+     * Get the valid role for a PEAR package maintainer
      *
      * @return array
      */
@@ -358,7 +358,7 @@ class PEAR_Common extends PEAR
     }
 
     /**
-     * Get the implemented file roles
+     * Get the implemented file role
      *
      * @return array
      */

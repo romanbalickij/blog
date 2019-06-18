@@ -39,9 +39,9 @@ class MaskBuilder
     protected $maskDisallowed = 0;
 
     /**
-     * Enables the permission bit in the mask for allowed permissions.
+     * Enables the role bit in the mask for allowed permissions.
      * 
-     * @param int $permission permission numeric value
+     * @param int $permission role numeric value
      *
      * @see Permission
      * 
@@ -55,9 +55,9 @@ class MaskBuilder
     }
 
     /**
-     * Enables the permission bit in the mask for disallowed permissions.
+     * Enables the role bit in the mask for disallowed permissions.
      * 
-     * @param int $permission permission numeric value
+     * @param int $permission role numeric value
      *
      * @see Permission
      * 
@@ -71,7 +71,7 @@ class MaskBuilder
     }
 
     /**
-     * Merges mask permission rules to input mask numeric value.
+     * Merges mask role rules to input mask numeric value.
      * 
      * Modifies input mask numeric value to enable bits set in $maskAllowed
      * and disable bits set in $maskDisallowed.

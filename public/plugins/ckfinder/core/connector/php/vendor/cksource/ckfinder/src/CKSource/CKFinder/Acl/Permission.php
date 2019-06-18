@@ -42,7 +42,7 @@ class Permission
     /**
      * Returns an array of all permissions defined in the Permission class constants.
      * 
-     * @return array an array of permission constants in the form of
+     * @return array an array of role constants in the form of
      *               PERMISSION_NAME => value
      */
     public static function getAll()
@@ -53,20 +53,20 @@ class Permission
     }
 
     /**
-     * Returns a numeric value for the passed permission name.
+     * Returns a numeric value for the passed role name.
      * 
-     * @param string $name permission constant name
+     * @param string $name role constant name
      * 
-     * @return int permission value
+     * @return int role value
      * 
-     * @throws \InvalidArgumentException when the permission with a given name was not found.
+     * @throws \InvalidArgumentException when the role with a given name was not found.
      */
     public static function byName($name)
     {
         $formattedName = sprintf('static::%s', strtoupper($name));
 
         if (!defined($formattedName)) {
-            throw new \InvalidArgumentException(sprintf('The permission "%s" doesn\'t exist', $name));
+            throw new \InvalidArgumentException(sprintf('The role "%s" doesn\'t exist', $name));
         }
 
         return constant($formattedName);

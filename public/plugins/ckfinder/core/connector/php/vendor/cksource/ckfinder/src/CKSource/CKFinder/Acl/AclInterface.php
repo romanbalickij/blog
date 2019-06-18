@@ -22,12 +22,12 @@ namespace CKSource\CKFinder\Acl;
 interface AclInterface
 {
     /**
-     * Allows a permission in the chosen folder.
+     * Allows a role in the chosen folder.
      * 
      * @param string $resourceType the resource type identifier (also `*` for all resource types)
      * @param string $folderPath   the folder path
-     * @param int    $permission   the permission numeric value
-     * @param string $role         the user role name (also `*` for all roles)
+     * @param int    $permission   the role numeric value
+     * @param string $role         the user role name (also `*` for all role)
      * 
      * @return Acl $this
      * 
@@ -36,12 +36,12 @@ interface AclInterface
     public function allow($resourceType, $folderPath, $permission, $role);
 
     /**
-     * Disallows a permission in the chosen folder.
+     * Disallows a role in the chosen folder.
      * 
      * @param string $resourceType the resource type identifier (also `*` for all resource types)
      * @param string $folderPath   the folder path
-     * @param int    $permission   the permission numeric value
-     * @param string $role         the user role name (also `*` for all roles)
+     * @param int    $permission   the role numeric value
+     * @param string $role         the user role name (also `*` for all role)
      * 
      * @return Acl $this
      * 
@@ -50,14 +50,14 @@ interface AclInterface
     public function disallow($resourceType, $folderPath, $permission, $role);
 
     /**
-     * Checks if a role has the required permission for a folder.
+     * Checks if a role has the required role for a folder.
      * 
      * @param string $resourceType the resource type identifier (also `*` for all resource types)
      * @param string $folderPath   the folder path
-     * @param int    $permission   the permission numeric value
-     * @param string $role         the user role name (also `*` for all roles)
+     * @param int    $permission   the role numeric value
+     * @param string $role         the user role name (also `*` for all role)
      * 
-     * @return bool true if role has required permission
+     * @return bool true if role has required role
      * 
      * @see Permission
      */
@@ -68,7 +68,7 @@ interface AclInterface
      * 
      * @param string $resourceType the resource type identifier (also `*` for all resource types)
      * @param string $folderPath   the folder path
-     * @param string $role         the user role name (also `*` for all roles)
+     * @param string $role         the user role name (also `*` for all role)
      * 
      * @return int computed mask value
      * 

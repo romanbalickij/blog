@@ -104,10 +104,12 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
+
                 <div class="box-footer">
                     <a href="{{route('posts.index')}}" class="btn btn-default">Back</a>
                     <button class="btn btn-warning pull-right">Update</button>
                 </div>
+
                 <!-- /.box-footer-->
             </div>
             <!-- /.box -->

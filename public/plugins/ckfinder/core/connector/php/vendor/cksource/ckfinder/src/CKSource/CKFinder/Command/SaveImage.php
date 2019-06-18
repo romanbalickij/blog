@@ -53,12 +53,12 @@ class SaveImage extends CommandAbstract
             $saveAsNew = true;
             $editedImage->saveAsNew(true);
         } else {
-            // If file exists check for FILE_DELETE permission
+            // If file exists check for FILE_DELETE role
             $resourceTypeName = $workingFolder->getResourceType()->getName();
             $path = $workingFolder->getClientCurrentFolder();
 
             if (!$acl->isAllowed($resourceTypeName, $path, Permission::FILE_DELETE)) {
-                throw new UnauthorizedException(sprintf('Unauthorized: no FILE_DELETE permission in %s:%s', $resourceTypeName, $path));
+                throw new UnauthorizedException(sprintf('Unauthorized: no FILE_DELETE role in %s:%s', $resourceTypeName, $path));
             }
         }
 

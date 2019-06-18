@@ -145,7 +145,7 @@ class XmlRoleEnvironmentDataDeserializer
     }
     
     /**
-     * Translates the roles.
+     * Translates the role.
      * 
      * @param string       $environmentInfo The role environment info.
      * @param RoleInstance $currentInstance The current instance info.

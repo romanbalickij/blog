@@ -13,10 +13,42 @@ class CreateRolesTables extends Migration
      */
     public function up()
     {
-        Schema::create('roles_tables', function (Blueprint $table) {
+        Schema::create('role', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('label')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('permissions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('label')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('role_id')->unsigned();
+            $table->integer('permission_id')->unsigned();
+            $table->timestamps();
+
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('role')
+                ->onDelete('cascade');
+
+            $table->foreign('permission_id')
+                ->references('id')
+                ->on('permissions')
+                ->onDelete('cascade');
+
+
+            $table->primary(['role_id', 'permission_id']);
+        });
+
+
     }
 
     /**
@@ -26,6 +58,6 @@ class CreateRolesTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles_tables');
+        Schema::dropIfExists('role');
     }
 }

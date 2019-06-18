@@ -765,13 +765,13 @@ class PEAR_Installer extends PEAR_Downloader
 
                     // check that dest dir. is writable
                     if (!is_writable(dirname($data[1]))) {
-                        $errors[] = "permission denied ($type): $data[1]";
+                        $errors[] = "role denied ($type): $data[1]";
                     }
                     break;
                 case 'chmod':
                     // check that file is writable
                     if (!is_writable($data[1])) {
-                        $errors[] = "permission denied ($type): $data[1] " . decoct($data[0]);
+                        $errors[] = "role denied ($type): $data[1] " . decoct($data[0]);
                     }
                     break;
                 case 'delete':
@@ -781,13 +781,13 @@ class PEAR_Installer extends PEAR_Downloader
                     // check that directory is writable
                     if (file_exists($data[0])) {
                         if (!is_writable(dirname($data[0]))) {
-                            $errors[] = "permission denied ($type): $data[0]";
+                            $errors[] = "role denied ($type): $data[0]";
                         } else {
                             // make sure the file to be deleted can be opened for writing
                             $fp = false;
                             if (!is_dir($data[0]) &&
                                   (!is_writable($data[0]) || !($fp = @fopen($data[0], 'a')))) {
-                                $errors[] = "permission denied ($type): $data[0]";
+                                $errors[] = "role denied ($type): $data[0]";
                             } elseif ($fp) {
                                 fclose($fp);
                             }

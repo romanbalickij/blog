@@ -22,9 +22,11 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <div class="form-group">
-                        <a href="{{route('posts.create')}}" class="btn btn-success">Create post</a>
-                    </div>
+                    @can('edit_forum')
+                        <div class="form-group">
+                            <a href="{{route('posts.create')}}" class="btn btn-success">Create post</a>
+                        </div>
+                    @endcan
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>

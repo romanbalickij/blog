@@ -22,6 +22,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::all();
+       // dd(auth()->user()-> hasRole('admin'));
         return view('admin.posts.index', compact('posts'));
     }
 

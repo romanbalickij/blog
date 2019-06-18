@@ -89,7 +89,7 @@ class Acl implements AclInterface
      * )
      * @endcode
      * 
-     * If any permission is missing, it is inherited from the parent folder.
+     * If any role is missing, it is inherited from the parent folder.
      *
      * @param array $aclConfigNodes Access Control Lists configuration nodes
      *
@@ -120,7 +120,7 @@ class Acl implements AclInterface
     }
 
     /**
-     * Allows a permission for a given role.
+     * Allows a role for a given role.
      *
      * @param string $resourceType
      * @param string $folderPath
@@ -146,7 +146,7 @@ class Acl implements AclInterface
     }
 
     /**
-     * Disallows a permission for a given role.
+     * Disallows a role for a given role.
      *
      * @param string $resourceType
      * @param string $folderPath
@@ -172,7 +172,7 @@ class Acl implements AclInterface
     }
 
     /**
-     * Checks if a given role has a permission.
+     * Checks if a given role has a role.
      *
      * @param string      $resourceType
      * @param string      $folderPath
@@ -239,7 +239,7 @@ class Acl implements AclInterface
     }
 
     /**
-     * Merges permission masks to allow permission inheritance from parent folders.
+     * Merges role masks to allow role inheritance from parent folders.
      * 
      * @param int    $currentMask  the current mask numeric value
      * @param string $resourceType the resource type identifier

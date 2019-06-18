@@ -30,7 +30,7 @@
  *   documentation and/or other materials provided with the distribution.
  * - Neither the name of the authors, nor the names of its contributors 
  *   may be used to endorse or promote products derived from this 
- *   software without specific prior written permission.
+ *   software without specific prior written role.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE

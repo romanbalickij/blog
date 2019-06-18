@@ -14,7 +14,7 @@
  */
 
 /**
- * base class for installer roles
+ * base class for installer role
  */
 require_once 'PEAR/Installer/Role/Common.php';
 require_once 'PEAR/XMLParser.php';
@@ -31,7 +31,7 @@ require_once 'PEAR/XMLParser.php';
 class PEAR_Installer_Role
 {
     /**
-     * Set up any additional configuration variables that file roles require
+     * Set up any additional configuration variables that file role require
      *
      * Never call this directly, it is called by the PEAR_Config constructor
      * @param PEAR_Config
@@ -78,7 +78,7 @@ class PEAR_Installer_Role
     }
 
     /**
-     * Get a list of file roles that are valid for the particular release type.
+     * Get a list of file role that are valid for the particular release type.
      *
      * For instance, src files serve no purpose in regular php releases.
      * @param string
@@ -111,11 +111,11 @@ class PEAR_Installer_Role
     }
 
     /**
-     * Get a list of roles that require their files to be installed
+     * Get a list of role that require their files to be installed
      *
-     * Most roles must be installed, but src and package roles, for instance
-     * are pseudo-roles.  src files are compiled into a new extension.  Package
-     * roles are actually fully bundled releases of a package
+     * Most role must be installed, but src and package role, for instance
+     * are pseudo-role.  src files are compiled into a new extension.  Package
+     * role are actually fully bundled releases of a package
      * @param bool clear cache
      * @return array
      */
@@ -145,9 +145,9 @@ class PEAR_Installer_Role
     }
 
     /**
-     * Return an array of roles that are affected by the baseinstalldir attribute
+     * Return an array of role that are affected by the baseinstalldir attribute
      *
-     * Most roles ignore this attribute, and instead install directly into:
+     * Most role ignore this attribute, and instead install directly into:
      * PackageName/filepath
      * so a tests file tests/file.phpt is installed into PackageName/tests/filepath.php
      * @param bool clear cache
@@ -179,7 +179,7 @@ class PEAR_Installer_Role
     }
 
     /**
-     * Return an array of file roles that should be analyzed for PHP content at package time,
+     * Return an array of file role that should be analyzed for PHP content at package time,
      * like the "php" role.
      * @param bool clear cache
      * @return array
@@ -242,7 +242,7 @@ class PEAR_Installer_Role
             }
 
             $class = "PEAR_Installer_Role_".substr($entry, 0, -4);
-            // List of roles
+            // List of role
             if (!isset($GLOBALS['_PEAR_INSTALLER_ROLES'][$class])) {
                 $file = "$dir/$entry";
                 $parser->parse(file_get_contents($file));

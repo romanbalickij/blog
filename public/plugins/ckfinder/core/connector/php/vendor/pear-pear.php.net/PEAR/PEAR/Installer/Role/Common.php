@@ -1,6 +1,6 @@
 <?php
 /**
- * Base class for all installation roles.
+ * Base class for all installation role.
  *
  * PHP versions 4 and 5
  *
@@ -13,10 +13,10 @@
  * @since      File available since Release 1.4.0a1
  */
 /**
- * Base class for all installation roles.
+ * Base class for all installation role.
  *
- * This class allows extensibility of file roles.  Packages with complex
- * customization can now provide custom file roles along with the possibility of
+ * This class allows extensibility of file role.  Packages with complex
+ * customization can now provide custom file role along with the possibility of
  * adding configuration values to match.
  * @category   pear
  * @package    PEAR

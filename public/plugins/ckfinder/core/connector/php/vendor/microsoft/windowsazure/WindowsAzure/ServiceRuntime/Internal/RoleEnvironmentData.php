@@ -74,7 +74,7 @@ class RoleEnvironmentData
      * @param array        $configurationSettings The configuration settings.
      * @param array        $localResources        The local resources.
      * @param RoleInstance $currentInstance       The current instance information.
-     * @param array        $roles                 The instance roles.
+     * @param array        $roles                 The instance role.
      * @param boolean      $isEmulated            Boolean value indicating if
      *     the instance is running in the emulator.
      */
@@ -120,7 +120,7 @@ class RoleEnvironmentData
     }
     
     /**
-     * Gets the roles.
+     * Gets the role.
      * 
      * @return array
      */
