@@ -29,4 +29,7 @@ class SubsController extends Controller
 
       return redirect('/')->with('status', 'Your mail has been verified');
     }
+
 }
+
+

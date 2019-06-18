@@ -49,8 +49,6 @@
                                                     <i class="fa fa-eye"></i>{{$post->views}}</a>
 
                                                 <i class="fa fa-comments"></i>{{$post->commentCount()}}
-
-                                                <a ><i class="fa fa-heart-o" aria-hidden="true"></i>{{$post->likesCount()}}</a>
                                             </div>
 
                                         </div>

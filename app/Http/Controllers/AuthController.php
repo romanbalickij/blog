@@ -32,6 +32,8 @@ class AuthController extends Controller
 
     public function login(UsersLoginRequest $request){
 
+
+
       if(Auth::attempt([
             'email' => $request->get('email'),
             'password' => $request->get('password')
@@ -45,4 +47,7 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login.form');
     }
+
+
+
 }

@@ -50,7 +50,7 @@ class Post extends Model
             ]
         ];
     }
-    /**вивiд зображення */
+
     public function getImage() {
         if($this->image == null){
             return  '/uploads/no-image.png';
@@ -133,7 +133,7 @@ class Post extends Model
         if(!$this->tags->isEmpty()) {
             return implode(',', $this->tags()->pluck('title')->all());
         }
-            return 'Теги Вiдсутнi';
+            return 'no tags';
     }
 
     public  function hasTag($tagId){

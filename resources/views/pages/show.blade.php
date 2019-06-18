@@ -37,13 +37,6 @@
                                     class="social-share-title pull-left text-capitalize">By {{$post->postAuthor()}} On {{$post->getDate()}}</span>
                                 <ul class="text-center pull-right">
 
-                                    <div class="panel footer" data-postid="{{$post->id}}">
-                                        @if(Auth::check())
-
-                                            <a href="#" title="Love it" class="btn btn-counter like  " data-count="1"><span>&#x2764;</span>{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
-                                            <a href="#" title="Love it" class="btn btn-counter like  " data-count="2"><span>&#x2764;</span>{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'You dont like this post' : 'Dislike' : 'Dislike'}}</a>
-                                        @endif
-                                    </div>
                                 </ul>
                             </div>
                         </div>
@@ -128,25 +121,25 @@
                     <!-- end bottom comment-->
                            @endforeach
                         @endunless
-                   @if(Auth::check())
-                       @if(Auth::user()->status == 0)
+                    @if(Auth::check())
+                        @if(Auth::user()->status == 0)
 
-                     <div class="leave-comment"><!--leave comment-->
-                        <h4>Leave a reply</h4>
-                        <form class="form-horizontal contact-form" role="form" method="POST"
-                              action="{{route('comment.user')}}">
-                            @csrf
-                            <input  type="hidden"  name="post_id" value="{{$post->id}}">
-                            <div class="form-group">
-                                <div class="col-md-12">
+                            <div class="leave-comment"><!--leave comment-->
+                                <h4>Leave a reply</h4>
+                                <form class="form-horizontal contact-form" role="form" method="POST"
+                                      action="{{route('comment.user')}}">
+                                    @csrf
+                                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
 										<textarea class="form-control" rows="6" name="text"
                                                   placeholder="Write Massage"></textarea>
-                                </div>
-                            </div>
-                            <button class="btn send-btn">Post Comment</button>
-                        </form>
+                                        </div>
+                                    </div>
+                                    <button class="btn send-btn">Post Comment</button>
+                                </form>
 
-                    </div><!--end leave comment-->
+                            </div><!--end leave comment-->
 
                       @endif
                    @endif
